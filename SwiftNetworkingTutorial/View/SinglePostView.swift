@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct SinglePostView: View {
+    
+    var post: Post
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        HStack(alignment: .top, spacing: 12) {
+            Group {
+                AsyncImage(url: URL(string: AppConstants.randomPhotosURL)!) { img in
+                    img.resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                    
+                } placeholder: {
+                    ProgressView()
+                }
+            }
+            .frame(width: 56, height: 56)
 
-#Preview {
-    SinglePostView()
+            
+            VStack(alignment: .leading) {
+                Text(post.getFormattedTitle)
+                    .lineLimit(1)
+//                            .truncationMode(.tail)
+                    .font(.headline)
+                Text(post.body)
+                    .lineLimit(2)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+
+            
+        }
+
+    }
 }

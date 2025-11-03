@@ -8,8 +8,43 @@
 import SwiftUI
 
 struct PostsView: View {
+    
+    @Environment(PostViewModel.self) private var viewModel
+    
+    @State private var isLoading: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if isLoading {
+                ProgressView()
+            } else {
+                VStack {
+                    
+                    Text("Posts")
+                        .font(.title)
+                        .bold()
+                    
+                    List(viewModel.posts) { post in
+                        
+                        SinglePostView(post: post)
+                        
+                    }
+                }
+                
+            }
+            
+        }
+        .onAppear {
+           Task {
+               isLoading = true
+               
+               defer {
+                   isLoading = false
+               }
+               try await viewModel.fetchPosts()
+           }
+       }
+                
     }
 }
 

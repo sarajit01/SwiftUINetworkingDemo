@@ -9,7 +9,25 @@ import SwiftUI
 
 struct TabBarView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        TabView() {
+            
+            PostsView()
+                .toolbarBackground(.visible, for: .tabBar)
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Posts")
+                }
+            
+            UsersView()
+                .toolbarBackground(.visible, for: .tabBar)
+                .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Users")
+                }
+        }
+        .background(Color(.systemBackground))
+        
     }
 }
 

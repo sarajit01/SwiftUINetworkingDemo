@@ -29,20 +29,42 @@
 		DF22D68A2E20FCFC00D64EBB /* SwiftNetworkingTutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNetworkingTutorialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DFBD5AE12EB8ADA6005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorial" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/SwiftNetworkingTutorialTests/SwiftNetworkingTutorialTests.swift",
+				"Preview Content/SwiftNetworkingTutorialUITests/SwiftNetworkingTutorialUITests.swift",
+				"Preview Content/SwiftNetworkingTutorialUITests/SwiftNetworkingTutorialUITestsLaunchTests.swift",
+			);
+			target = DF22D66F2E20FCFA00D64EBB /* SwiftNetworkingTutorial */;
+		};
+		DFBD5AE22EB8ADA6005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorialTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/SwiftNetworkingTutorialTests/SwiftNetworkingTutorialTests.swift",
+			);
+			target = DF22D67F2E20FCFC00D64EBB /* SwiftNetworkingTutorialTests */;
+		};
+		DFBD5AE82EB8ADA9005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorialUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/SwiftNetworkingTutorialUITests/SwiftNetworkingTutorialUITests.swift",
+				"Preview Content/SwiftNetworkingTutorialUITests/SwiftNetworkingTutorialUITestsLaunchTests.swift",
+			);
+			target = DF22D6892E20FCFC00D64EBB /* SwiftNetworkingTutorialUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DF22D6722E20FCFB00D64EBB /* SwiftNetworkingTutorial */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DFBD5AE12EB8ADA6005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorial" target */,
+				DFBD5AE22EB8ADA6005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorialTests" target */,
+				DFBD5AE82EB8ADA9005F6FDB /* Exceptions for "SwiftNetworkingTutorial" folder in "SwiftNetworkingTutorialUITests" target */,
+			);
 			path = SwiftNetworkingTutorial;
-			sourceTree = "<group>";
-		};
-		DF22D6832E20FCFC00D64EBB /* SwiftNetworkingTutorialTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftNetworkingTutorialTests;
-			sourceTree = "<group>";
-		};
-		DF22D68D2E20FCFC00D64EBB /* SwiftNetworkingTutorialUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftNetworkingTutorialUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				DF22D6722E20FCFB00D64EBB /* SwiftNetworkingTutorial */,
-				DF22D6832E20FCFC00D64EBB /* SwiftNetworkingTutorialTests */,
-				DF22D68D2E20FCFC00D64EBB /* SwiftNetworkingTutorialUITests */,
 				DF22D6712E20FCFB00D64EBB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +150,6 @@
 			dependencies = (
 				DF22D6822E20FCFC00D64EBB /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				DF22D6832E20FCFC00D64EBB /* SwiftNetworkingTutorialTests */,
-			);
 			name = SwiftNetworkingTutorialTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +169,6 @@
 			);
 			dependencies = (
 				DF22D68C2E20FCFC00D64EBB /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				DF22D68D2E20FCFC00D64EBB /* SwiftNetworkingTutorialUITests */,
 			);
 			name = SwiftNetworkingTutorialUITests;
 			packageProductDependencies = (

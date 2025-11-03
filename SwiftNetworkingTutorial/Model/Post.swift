@@ -6,3 +6,9 @@
 //
 
 import Foundation
+struct Post: Codable, Identifiable, HasTitle {
+    var id: Int
+    var title: String
+    var body: String
+    var userId: Int
+}
