@@ -1,0 +1,86 @@
+//
+//  ContentView.swift
+//  SwiftNetworkingTutorial
+//
+//  Created by Sarajit Barmon on 7/11/25.
+//
+
+import SwiftUI
+
+struct Post: Codable, Identifiable {
+    var id: Int
+    var title: String
+    var body: String
+    var userId: Int
+}
+
+struct ContentView: View {
+    
+    private let baseURL = "https://jsonplaceholder.typicode.com/posts"
+    
+    @State private var posts: [Post] = []
+    
+    private func fetchPosts() {
+
+        var request = URLRequest(url: URL(string: baseURL)!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                print("Error fetching posts: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode([Post].self, from: data)
+                
+                self.posts = decodedData
+                
+                
+            } catch let jsonError {
+                print("Error decoding JSON: \(jsonError)")
+            }
+            
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+
+    
+    var body: some View {
+        VStack {
+            
+            Text("Posts")
+                .font(.title)
+                .bold()
+           
+            List(posts) { post in
+                VStack(alignment: .leading) {
+                    Text(post.title)
+                        .font(.headline)
+                    Text(post.body)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                
+            }
+        } .onAppear {
+            fetchPosts();
+        }
+        
+    }
+}
+
+#Preview {
+    ContentView()
+}
