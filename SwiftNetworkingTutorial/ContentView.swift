@@ -65,14 +65,35 @@ struct ContentView: View {
                 .bold()
            
             List(posts) { post in
-                VStack(alignment: .leading) {
-                    Text(post.title)
-                        .font(.headline)
-                    Text(post.body)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
                 
+                HStack(alignment: .top, spacing: 12) {
+                    Group {
+                        AsyncImage(url: URL(string: "https://picsum.photos/200")!) { img in
+                            img.resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                            
+                        } placeholder: {
+                            ProgressView()
+                        }
+                    }
+                    .frame(width: 56, height: 56)
+
+                    
+                    VStack(alignment: .leading) {
+                        Text(post.title)
+                            .lineLimit(1)
+//                            .truncationMode(.tail)
+                            .font(.headline)
+                        Text(post.body)
+                            .lineLimit(2)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+
+                    
+                }
+
             }
         } .onAppear {
             fetchPosts();
