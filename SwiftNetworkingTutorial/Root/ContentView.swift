@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct Post: Codable, Identifiable {
+struct Post: Codable, Identifiable, HasTitle {
     var id: Int
     var title: String
     var body: String
     var userId: Int
 }
+
+
+protocol HasTitle {
+    var title: String { get }
+    
+}
+
+extension HasTitle {
+    
+    var getFormattedTitle: String {
+        title.uppercased()
+    }
+}
+
 
 struct ContentView: View {
     
@@ -81,7 +95,7 @@ struct ContentView: View {
 
                     
                     VStack(alignment: .leading) {
-                        Text(post.title)
+                        Text(post.getFormattedTitle)
                             .lineLimit(1)
 //                            .truncationMode(.tail)
                             .font(.headline)
